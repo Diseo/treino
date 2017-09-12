@@ -11,6 +11,8 @@ import android.view.MenuItem;
 
 import com.example.diseomac.treino.Model.Treino;
 
+import java.util.Random;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -35,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void execute(Realm realm) {
                         Treino treino = realm.createObject(Treino.class);
-                        treino.setName("Treino A");
+                        Random r = new Random();
+                        char c = (char) (r.nextInt(26) + 'a');
+                        treino.setName("Treino " + c);
                         treino.setDescr("O primeiro treino");
                     }
                 });
